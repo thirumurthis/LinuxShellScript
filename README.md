@@ -21,9 +21,15 @@ funcname() {
 invoke using 
 > funcname
 
+TO check if the variable is empty use 
+if [ -z $VARNAME ] 
+then 
+   echo "EMPTY STRING"
+fi
+
 TO execute and store the command execution to a variable then use back tilt
 
-FILES=`ls -1 | sort -r | head -3`
+FILES=\`ls -1 | sort -r | head -3\`
 > above command -1 in ls will list only one cloumn, -r in sort will reverse the data
 
 Environment variables
@@ -40,3 +46,20 @@ READING a FILE
  do
    echo LINE
  done
+
+for [ condition ]
+do 
+ ...
+done
+
+if [ condition ] 
+..
+elif
+..
+else
+..
+fi
+
+break
+
+continue
