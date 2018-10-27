@@ -5,8 +5,8 @@ Command line parameters:
   $# => stores number of parameter
   $* => stores the parameter together in a single string
   $$ => provides the process id of current shell
-  $? => provides the value returned by the last executed command. (0 -> means successful execution) 
-      example : > ls -lrt; $? 
+  $? => provides the value returned by the last executed command. (0 -> means successful execution)
+      example : > ls -lrt; $?
   $! => provides the process id of the last backgoround process invoked.
 
 FUNCTION:
@@ -15,13 +15,13 @@ FUNCTION:
 
       Function can take parameter and return value.
       if need to return a string from a function, we must use GLOBAL VARIABLE
-   
+
 Case statment can take pattern, default is *)
-      case "$x" in 
+      case "$x" in
         y | Y | yes | YES ) return 1;;
         n | N | no | NO ) return 0;;
         *) echo "default input";;
-      esac        
+      esac
 
 COMMANDS:
   > $ (()) - arithmetic operation (new form)
@@ -38,7 +38,45 @@ COMMANDS:
   > || - OR
 exit, export, set, typeset, shift, read, if, echo, case, break - other commands
 
+OR - operator executes from left until one returns true.
+AND - operator executes from left  until one returns false.
 
+PARAMETER substitution: $(), old usage was `` (grave quotes)
+example:
+    ls -l $(echo "$1")
 
-  
-  
+    set $(date)
+    echo $6
+
+Protecting variables using ${}
+for i in 1,2,3
+do
+  echo $iname
+done
+//will display blank since $iname looks for that variables
+
+instead if we used ${i}name => value gets substituted.
+1name ,2name, 3name will be printed
+
+use of : in ${}
+  $ var=one
+  $ echo ${var:-help}
+  // the echo statment  will print one if var is present else help
+
+  $ echo ${newvar:=two}
+  //above echo will set newvar with two if it is not already set
+  //outputs two
+
+Below is applicable to few shell not working in all the shell
+  ${var#pattern} => match and remove small left pattern
+  ${var##pattern} => match and remove large left pattern
+${var%pattern} => match and remove large right pattern
+${var%%pattern} => match and remove large right pattern
+
+NOTE:
+${#var} => gives the length of the string var
+
+EXIT Command:
+  Stops further processing and provides an exit status to the invoking processing
+  exit code = 0 used for success
+  exit code = +ve are used for return error values
