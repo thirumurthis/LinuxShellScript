@@ -1,0 +1,44 @@
+Command line parameters:
+
+  $0 => stores the name of the script being used
+  $1,$2.. => stores the parameter passed to the script.
+  $# => stores number of parameter
+  $* => stores the parameter together in a single string
+  $$ => provides the process id of current shell
+  $? => provides the value returned by the last executed command. (0 -> means successful execution) 
+      example : > ls -lrt; $? 
+  $! => provides the process id of the last backgoround process invoked.
+
+FUNCTION:
+
+      Shell is an interepted language. The definition of all function should precede their use.
+
+      Function can take parameter and return value.
+      if need to return a string from a function, we must use GLOBAL VARIABLE
+   
+Case statment can take pattern, default is *)
+      case "$x" in 
+        y | Y | yes | YES ) return 1;;
+        n | N | no | NO ) return 0;;
+        *) echo "default input";;
+      esac        
+
+COMMANDS:
+  > $ (()) - arithmetic operation (new form)
+  > expr - arithmetic operation (old form)
+  > $() - command result substitution (new form)
+  > `` - command result substitution (old form)
+  > ${} - parameter matching and parameter substitution
+  > test or [] - test condition
+  > : - colon operator, always true
+  > . - run in current shell
+  > true - always true
+  > trap - specifies signal handling
+  > && - AND
+  > || - OR
+exit, export, set, typeset, shift, read, if, echo, case, break - other commands
+
+
+
+  
+  
