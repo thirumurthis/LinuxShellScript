@@ -4,17 +4,22 @@ Scripts to read file and use funtion
 using pipes
 
 Use of $@  => stores all the value of user input in an array
+
 $? => return status of the earlier / very last command execution
 
 use keyword local with function to declare a variable local to function
 
 FUNCTIONS
 functions cannot return any value, use the Global variable decleration to achive the return.
+
 declaration 1
+
 function funcname() {
 ...
 }
-declaration 2
+
+declaration 2:
+
 funcname() {
 ..
 }
@@ -22,6 +27,7 @@ invoke using
 > funcname
 
 TO check if the variable is empty use 
+
 if [ -z $VARNAME ] 
 then 
    echo "EMPTY STRING"
@@ -67,7 +73,6 @@ continue
 sleep 100
 
 TO Run a script in a background use & at the endo of the command
-
 > sleep 100 &
 
 TO MONITORING/WATCHING PROCESS
@@ -84,9 +89,9 @@ example:
  > and user intput value stored in NUMBER variabe
  
  ------------
- echo command in command line:
- echo -n # this will not include the new line at the end
- echo -e "\tprint" # this prints the tab space -e is used to include the escape seuence
+   echo command in command line:
+   echo -n # this will not include the new line at the end
+   echo -e "\tprint" # this prints the tab space -e is used to include the escape seuence
  
  > Echo with color code achived using escape sequence.
  31 = red  32 = green
@@ -96,7 +101,9 @@ echo -e "\e[1;31m] This is red test \e[0m"
 [0m -> resets the color back.]
 
 TO view the environment variables issue env command
+
 pgrep gedit -> is a command to get the pid of gedit process
+
 cat /proc/PID/environ - this will list all the environment variable
 
 tr '\0' '\n' -> substitution command
